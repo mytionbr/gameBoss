@@ -1,12 +1,24 @@
 package br.com.gameBoss.mvc.model;
 
-public class Game {
+import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Game {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer id;
-	public String nome;
-	public String descricao;
-	public Double preco;
-	public Categoria categoria;
+	public String name;
+	public String description;
+	public BigDecimal price;
+	@Enumerated(EnumType.STRING)
+	public Category category;
 
 	
 
@@ -18,36 +30,36 @@ public class Game {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.name = nome;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public Double getPreco() {
-		return preco;
+	public BigDecimal getPrice() {
+		return price;
 	}
 
-	public void setPreco(Double preco) {
-		this.preco = preco;
+	public void setPrice(BigDecimal price) {
+		this.price = price;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
+	public void setCategoria(Category category) {
+		this.category = category;
 	}
 	
 
