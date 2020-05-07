@@ -11,22 +11,21 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class User {
+public class User implements BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String name;
 	private String email;
 	private String password;
 	private String photo;
-	@Enumerated(EnumType.STRING)
-	private LevelAccess levelAccess;
 	
-	public Integer getId() {
+	
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -47,17 +46,17 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public LevelAccess getLevelAccess() {
-		return levelAccess;
-	}
-	public void setLevelAccess(LevelAccess levelAccess) {
-		this.levelAccess = levelAccess;
-	}
+
 	public String getPhoto() {
 		return photo;
 	}
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", photo=" + photo
+				+ "]";
 	}
 	
 	

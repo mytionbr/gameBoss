@@ -10,10 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Game {
+public class Game implements BaseEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer id;
+	public Long id;
 	public String name;
 	public String description;
 	public BigDecimal price;
@@ -22,11 +22,11 @@ public class Game {
 
 	
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -34,7 +34,7 @@ public class Game {
 		return name;
 	}
 
-	public void setNome(String nome) {
+	public void setName(String nome) {
 		this.name = nome;
 	}
 
@@ -60,6 +60,12 @@ public class Game {
 
 	public void setCategoria(Category category) {
 		this.category = category;
+	}
+
+	@Override
+	public String toString() {
+		return "Game [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + ", category="
+				+ category + "]";
 	}
 	
 

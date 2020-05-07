@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Client extends User{
+public class Client extends User {
 	
 	@OneToMany
 	private Collection<Game> shoppingCart;
@@ -25,6 +25,20 @@ public class Client extends User{
 	public void setShoppingCart(Collection<Game> shoppingCart) {
 		this.shoppingCart = shoppingCart;
 	}
+
+
+	@Override
+	public String toString() {
+		return " toString()=" + super.toString() + "]";
+	}
+
+
+	
+
+
+	
+	
+	
 
 	
 	

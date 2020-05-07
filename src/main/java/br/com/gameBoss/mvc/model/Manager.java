@@ -22,6 +22,14 @@ public class Manager extends User{
 		this.accessCode = accessCode;
 	}
 
+	@Override
+	public String toString() {
+		return "Manager [accessCode=" + accessCode + ", toString()=" + super.toString() + "]";
+	}
+
+	
+	
+
 	
 	
 }
