@@ -61,13 +61,10 @@ public class GenericDAO<T extends BaseEntity> {
 				em.close();
 			}
 	 }
-	 public Collection<T> searchList(Class<T> clazz,T obj){
+	 public Collection<T> searchList(Class<T> clazz){
 			Collection<T> list = null; 
 			try {
-				TypedQuery<T> query = em.createQuery("from :pObject c",clazz);
-				query.setParameter("pObject", obj);
-				
-				list = query.getResultList();
+				list  = em.createQuery("from "+clazz.getSimpleName(),clazz).getResultList();
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
