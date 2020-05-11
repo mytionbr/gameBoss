@@ -12,8 +12,13 @@ import br.com.gameBoss.mvc.model.Client;
 public class GenericDAO<T extends BaseEntity> {
 	private EntityManager em = new Connection().getConnection();
 	
+	
 	 
-	 public T findById(Class<T> clazz, Long id){
+	 public EntityManager getEm() {
+		return em;
+	}
+
+	public T findById(Class<T> clazz, Long id){
 		 try {
 			 return em.find(clazz, id);
 			} catch (Exception e) {
@@ -48,7 +53,7 @@ public class GenericDAO<T extends BaseEntity> {
 		}
 	
 	 public void remove(Class<T> clazz, Long id){
-		T t = findById(clazz, id);
+		T t = em.find(clazz, id);
 		 try {
 				em.getTransaction().begin();
 				em.remove(t);
@@ -57,9 +62,9 @@ public class GenericDAO<T extends BaseEntity> {
 				em.getTransaction().rollback();
 				throw new RuntimeException(e); 
 			}
-			finally{
-				em.close();
-			}
+		 finally{
+			 em.close();
+		 }
 	 }
 	 public Collection<T> searchList(Class<T> clazz){
 			Collection<T> list = null; 
