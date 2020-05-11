@@ -1,4 +1,4 @@
-package br.com.gameBoss.mvc.model.dao;
+package br.com.gameBoss.mvc.model.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,7 @@ import br.com.gameBoss.mvc.model.Client;
 import br.com.gameBoss.mvc.model.Game;
 import br.com.gameBoss.mvc.model.Manager;
 import br.com.gameBoss.mvc.model.User;
+import br.com.gameBoss.mvc.model.dao.GenericDAO;
 
 public class TestSearchList {
 	public static void main(String[] args) {

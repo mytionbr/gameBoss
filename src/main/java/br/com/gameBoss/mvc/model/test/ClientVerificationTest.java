@@ -7,8 +7,6 @@ public class ClientVerificationTest {
 	public static void main(String[] args) {
 		ClientDAO dao = new ClientDAO();
 		
-		
-		
 		Client client = new Client();
 		client.setEmail("matheus@gmail.com");
 		client.setPassword("123");
