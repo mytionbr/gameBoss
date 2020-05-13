@@ -1,12 +1,13 @@
 package br.com.gameBoss.mvc.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
+
 
 
 @Entity
 public class Manager extends User{
-	@JoinColumn(unique = true)
+	@Column(unique = true)
 	private Integer accessCode;
 	
 	public Manager() {
@@ -27,9 +28,5 @@ public class Manager extends User{
 		return "Manager [accessCode=" + accessCode + ", toString()=" + super.toString() + "]";
 	}
 
-	
-	
-
-	
 	
 }

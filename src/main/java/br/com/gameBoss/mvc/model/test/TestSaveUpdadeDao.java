@@ -16,6 +16,12 @@ import br.com.gameBoss.mvc.model.dao.GenericDAO;
 public class TestSaveUpdadeDao {
 	public static void main(String[] args) {
 		
+		Manager user2 = new Manager();
+		user2.setName("Joao");
+		user2.setEmail("joao@gmail.com");
+		user2.setPassword("122");
+		user2.setAccessCode(1234);
+		
 		Game game1 = new Game();
 		game1.setName("Mario bros");
 		game1.setCategoria(Category.ADVENTURE);
@@ -35,22 +41,13 @@ public class TestSaveUpdadeDao {
 		user1.setShoppingCart(Arrays.asList(game1,game2));
 		
 		
-		Manager user2 = new Manager();
-		user2.setName("Joao");
-		user2.setEmail("joao@gmail.com");
-		user2.setPassword("122");
-		user2.setAccessCode(1234);
-		
-		
-		
 		GenericDAO<Client> clientDAO = new GenericDAO<>();
-		GenericDAO<Manager> managerDAO = new GenericDAO<>();
 		GenericDAO<Game> gameDAO = new GenericDAO<>();
-		
 		
 		gameDAO.saveOrUpdate(game1);
 		gameDAO.saveOrUpdate(game2);
 		clientDAO.saveOrUpdate(user1);
+		GenericDAO<Manager> managerDAO = new GenericDAO<>();
 		managerDAO.saveOrUpdate(user2);
 		
 	}
