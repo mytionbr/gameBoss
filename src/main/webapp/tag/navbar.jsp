@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="navbar-menu fixed-top">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -17,8 +18,16 @@
 							Category Games
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
+							
+							<c:forEach var="category" items="${categories }">
+								<c:if test="${not empty category}">
+									<a class="dropdown-item" href="#">${category }</a>
+								</c:if>
+								<c:if test="${empty category}">
+									<a class="dropdown-item" href="#">Error</a>
+								</c:if>
+								
+							</c:forEach>							
 						</div>
 					</li>
 					<li class="nav-item dropdown">
@@ -26,8 +35,17 @@
 							Consoles
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
+						<c:forEach var="console" items="${consoles}">
+						<a class="dropdown-item" href="#">
+							<c:if test="${not empty console}">
+								${console }
+							</c:if>
+							<c:if test="${empty console}">
+								<p>Error</p>
+							</c:if>
+						</a>
+						</c:forEach>
+														
 						</div>
 					</li>
 					<li class="nav-item">

@@ -1,13 +1,20 @@
 package br.com.gameBoss.mvc.model;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.CollectionType;
+
+import com.mysql.cj.xdevapi.Type;
 
 @Entity
 public class Game implements BaseEntity{
@@ -19,8 +26,19 @@ public class Game implements BaseEntity{
 	public BigDecimal price;
 	@Enumerated(EnumType.STRING)
 	public Category category;
+	@ElementCollection(targetClass = ConsoleGame.class, fetch = FetchType.EAGER)
+	@Enumerated(EnumType.STRING)
+	public Collection<ConsoleGame> console;
 
 	
+
+	public Collection<ConsoleGame> getConsole() {
+		return console;
+	}
+
+	public void setConsole(Collection<ConsoleGame> console) {
+		this.console = console;
+	}
 
 	public Long getId() {
 		return id;
@@ -58,9 +76,12 @@ public class Game implements BaseEntity{
 		return category;
 	}
 
-	public void setCategoria(Category category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+
+	
 
 	@Override
 	public String toString() {
