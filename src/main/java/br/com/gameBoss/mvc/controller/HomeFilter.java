@@ -38,7 +38,7 @@ public class HomeFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse rep = (HttpServletResponse) response;
 
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/home.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/home.jsp");
 		List<ConsoleGame> consoles = new ArrayList<ConsoleGame>(Arrays.asList(ConsoleGame.values()));
 		List<Category> categories = new ArrayList<Category>(Arrays.asList(Category.values()));
 		req.setAttribute("consoles", consoles);
