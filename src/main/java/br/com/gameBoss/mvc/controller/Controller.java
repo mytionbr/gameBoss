@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.gameBoss.mvc.logic.Logic;
+import br.com.gameBoss.mvc.logic.NavBarLogic;
 
 @WebServlet("/entry")
 public class Controller extends HttpServlet {
@@ -37,6 +38,8 @@ public class Controller extends HttpServlet {
 				throw new  ServletException(e);
 			}
 			String[] adressAndType = responseOfLogic.split(":");
+			NavBarLogic navBarLogic = new NavBarLogic();
+			navBarLogic.execute(request, response);
 			if(adressAndType[0].equals("forward")){
 				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/"+adressAndType[1]);
 				rd.forward(request, response);

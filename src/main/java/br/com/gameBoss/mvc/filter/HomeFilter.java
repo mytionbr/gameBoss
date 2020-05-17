@@ -1,4 +1,4 @@
-package br.com.gameBoss.mvc.controller;
+package br.com.gameBoss.mvc.filter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.gameBoss.mvc.logic.NavBarLogic;
 import br.com.gameBoss.mvc.model.Category;
 import br.com.gameBoss.mvc.model.ConsoleGame;
 
@@ -40,10 +41,8 @@ public class HomeFilter implements Filter {
 		HttpServletResponse rep = (HttpServletResponse) response;
 
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/home.jsp");
-		List<ConsoleGame> consoles = new ArrayList<ConsoleGame>(Arrays.asList(ConsoleGame.values()));
-		List<Category> categories = new ArrayList<Category>(Arrays.asList(Category.values()));
-		req.setAttribute("consoles", consoles);
-		req.setAttribute("categories", categories);
+		NavBarLogic navBarLogic = new NavBarLogic();
+		navBarLogic.execute(req, rep);
 		rd.forward(req, rep);
 	
 		
