@@ -24,8 +24,8 @@ public class Controller extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Access controller");
 		
-		String parameter = request.getParameter("Logic");
-		String nameClass = "br.com.gameBoss.mvc.logic" + parameter;
+		String parameter = request.getParameter("logic");
+		String nameClass = "br.com.gameBoss.mvc.logic." + parameter;
 		String responseOfLogic;
 	
 			
@@ -37,7 +37,7 @@ public class Controller extends HttpServlet {
 				throw new  ServletException(e);
 			}
 			String[] adressAndType = responseOfLogic.split(":");
-			if(adressAndType.equals("forward")){
+			if(adressAndType[0].equals("forward")){
 				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/"+adressAndType[1]);
 				rd.forward(request, response);
 			}else{

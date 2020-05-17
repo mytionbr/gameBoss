@@ -17,15 +17,15 @@
 		</div>
 		<div>
 			<ul>
+			
 				<c:forEach var="game" items="${games }">
-					<li>
 						<c:if test="${not empty game }">
-							${game.name }
+							<li>${game.name }</li>
 						</c:if>
 						<c:if test="${empty game }">
-							<p>${message }</p>
+							<li><p>Erro</p></li>
 						</c:if>
-					</li>
+					
 				</c:forEach>
 
 			</ul>

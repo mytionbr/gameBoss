@@ -20,6 +20,7 @@ import br.com.gameBoss.mvc.model.Category;
 import br.com.gameBoss.mvc.model.ConsoleGame;
 
 @WebFilter("/")
+
 public class HomeFilter implements Filter {
 
 	public HomeFilter() {

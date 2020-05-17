@@ -21,7 +21,7 @@
 							
 							<c:forEach var="category" items="${categories }">
 								<c:if test="${not empty category}">
-									<a class="dropdown-item" href="#">${category }</a>
+									<a class="dropdown-item" href="entry?logic=GamesLogic&game=${category }">${category }</a>
 								</c:if>
 								<c:if test="${empty category}">
 									<a class="dropdown-item" href="#">Error</a>
