@@ -21,7 +21,7 @@
 							
 							<c:forEach var="category" items="${categories }">
 								<c:if test="${not empty category}">
-									<a class="dropdown-item" href="entry?logic=GamesLogic&game=${category }">${category }</a>
+									<a class="dropdown-item" href="entry?logic=GamesCategoryLogic&game=${category }">${category }</a>
 								</c:if>
 								<c:if test="${empty category}">
 									<a class="dropdown-item" href="#">Error</a>
@@ -36,9 +36,10 @@
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<c:forEach var="console" items="${consoles}">
-						<a class="dropdown-item" href="#">
+						<a class="dropdown-item" href="entry?logic=GamesConsoleLogic&game=${console }">
 							<c:if test="${not empty console}">
 								${console }
+								
 							</c:if>
 							<c:if test="${empty console}">
 								<p>Error</p>

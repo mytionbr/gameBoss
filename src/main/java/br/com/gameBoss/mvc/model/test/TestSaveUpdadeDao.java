@@ -18,19 +18,19 @@ public class TestSaveUpdadeDao {
 	public static void main(String[] args) {
 		
 		Game game1 = new Game();
-		game1.setName("Mario bros");
-		game1.setCategory(Category.ADVENTURE);
-		game1.setDescription("ocnaosnxsanxsoxnsao");
-		game1.setPrice(new BigDecimal(10.00));
-		game1.setConsole(Arrays.asList(ConsoleGame.NINTENTO,ConsoleGame.PC));
+		game1.setName("FIFA");
+		game1.setCategory(Category.SPORT);
+		game1.setDescription("SEDEDEDEDEDEDEDED");
+		game1.setPrice(new BigDecimal(12.00));
+		game1.setConsole(Arrays.asList(ConsoleGame.PC,ConsoleGame.XBOX,ConsoleGame.PLAYSTATION,ConsoleGame.NINTENTO));
 		
 		Game game2 = new Game();
-		game2.setName("Sonic");
-		game2.setCategory(Category.ADVENTURE);
+		game2.setName("World of tanks");
+		game2.setCategory(Category.ACTION);
 		game2.setDescription("ocsdcdscsdcwefbyny");
-		game2.setPrice(new BigDecimal(12.00));
-		game2.setConsole(Arrays.asList(ConsoleGame.PC));
-		
+		game2.setPrice(new BigDecimal(9.00));
+		game2.setConsole(Arrays.asList(ConsoleGame.PC,ConsoleGame.XBOX,ConsoleGame.PLAYSTATION));
+		/*
 		Client user1 = new Client();
 		user1.setName("Matheus");
 		user1.setEmail("matheus@gmail.com");
@@ -44,13 +44,15 @@ public class TestSaveUpdadeDao {
 		user2.setAccessCode(1234);
 		
 		GenericDAO<Client> clientDAO = new GenericDAO<>();
-		GenericDAO<Game> gameDAO = new GenericDAO<>();
+		
 		GenericDAO<Manager> managerDAO = new GenericDAO<>();
 		
-		gameDAO.saveOrUpdate(game1);
-		gameDAO.saveOrUpdate(game2);
+		
 		clientDAO.saveOrUpdate(user1);
 		managerDAO.saveOrUpdate(user2);
-		
+		*/
+		GenericDAO<Game> gameDAO = new GenericDAO<>();
+		gameDAO.saveOrUpdate(game1);
+		gameDAO.saveOrUpdate(game2);
 	}
 }
