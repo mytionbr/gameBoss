@@ -24,7 +24,7 @@
 						<th scope="col">Name</th>
 						<th scope="col">Description</th>
 						<th scope="col">Price</th>
-						<th scope="col"></th>
+						<th scope="col">Number</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -35,9 +35,10 @@
 						<td>${game.name }</td>
 						<td>${game.description }</td>
 						<td>${game.price }</td>
-						<td><button type="button" class="btn btn-success">
-						<a href="entry?logic=AddGameToCart&id=${game.id }" style="color: inherit;">Buy</a>
-							 </button></td>
+						<td><button type="button" class="btn btn-success"><a style="color: inherit;" href="entry?logic
+						=AddGameToCart&id=${game.id }">
+								Add +1						
+						</a> </button></td>
 						
 						
 					</tr>
