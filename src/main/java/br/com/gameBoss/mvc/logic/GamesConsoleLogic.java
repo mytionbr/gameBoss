@@ -39,6 +39,7 @@ public class GamesConsoleLogic implements Logic{
 			
 			
 		});
+		request.setAttribute("sessionName", consoleName);
 		request.setAttribute("games", gamesConsole);
 		return "forward:games.jsp";
 	}

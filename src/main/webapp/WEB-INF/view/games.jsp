@@ -13,25 +13,41 @@
 	<div class="presentation">
 		<div class="title">
 			<h1>Games</h1>
-			<h2>The best game offers</h2>
-		</div>
-		<div>
-			<ul>
-			
-				<c:forEach var="game" items="${games }">
-						<c:if test="${not empty game }">
-							<li>${game.name }</li>
-						</c:if>
-						<c:if test="${empty game }">
-							<li><p>Erro</p></li>
-						</c:if>
-					
-				</c:forEach>
-
-			</ul>
+			<h2>${sessionName }</h2>
 		</div>
 	</div>
+	<div>
+					<table class="table table-striped table-dark">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Name</th>
+						<th scope="col">Description</th>
+						<th scope="col">Price</th>
+					</tr>
+				</thead>
+				<tbody>
+				<c:forEach var="game" items="${games }" varStatus="id">
+				<c:if test="${not empty game }">
+					<tr>
+						<th scope="row">${id.count}</th>
+						<td>${game.name }</td>
+						<td>${game.description }</td>
+						<td>${game.price }</td>
+					</tr>
+					</c:if>
+					<c:if test="${empty game }">
+						<tr>
+						<th scope="row">1</th>
+						<td>Erro</td>
+					</tr>
+					</c:if>
+					</c:forEach>
+				</tbody>
+			</table>
 
+
+		</div>
 	<c:import url="/tag/footer.jsp" />
 	<c:import url="/tag/js.jsp" />
 </body>

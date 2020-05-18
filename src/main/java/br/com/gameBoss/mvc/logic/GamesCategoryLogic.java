@@ -30,7 +30,7 @@ public class GamesCategoryLogic implements Logic{
 				gamesCategory.add(game);
 			}
 		});
-		
+		request.setAttribute("sessionName", gameName);
 		request.setAttribute("games", gamesCategory);
 		return "forward:games.jsp";
 	}
