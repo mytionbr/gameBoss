@@ -17,43 +17,46 @@
 		</div>
 	</div>
 	<div>
-					<table class="table table-striped table-dark">
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Name</th>
-						<th scope="col">Description</th>
-						<th scope="col">Price</th>
-						<th scope="col"></th>
-					</tr>
-				</thead>
-				<tbody>
+		<table class="table table-striped table-dark">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">Description</th>
+					<th scope="col">Price</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
 				<c:forEach var="game" items="${games }" varStatus="id">
-				<c:if test="${not empty game }">
-					<tr>
-						<th scope="row">${id.count}</th>
-						<td>${game.name }</td>
-						<td>${game.description }</td>
-						<td>${game.price }</td>
-						<td><button type="button" class="btn btn-success">
-						<a href="entry?logic=AddGameToCart&id=${game.id }" style="color: inherit;">Buy</a>
-							 </button></td>
+					<c:if test="${not empty game }">
+						<tr>
+							<th scope="row">${id.count}</th>
+							<td>${game.name }</td>
+							<td>${game.description }</td>
+							<td>${game.price }</td>
+							<td><button type="button" class="btn btn-success">
+									<a href="entry?logic=AddGameToCart&id=${game.id }"
+										style="color: inherit;">Buy</a>
+								</button></td>
+						</tr>
 						
-						
-					</tr>
 					</c:if>
 					<c:if test="${empty game }">
 						<tr>
-						<th scope="row">1</th>
-						<td>Erro</td>
-					</tr>
+							<th scope="row">1</th>
+							<td>Erro</td>
+						</tr>
 					</c:if>
-					</c:forEach>
-				</tbody>
-			</table>
+				</c:forEach>
+				
+					
+				
+			</tbody>
+		</table>
 
 
-		</div>
+	</div>
 	<c:import url="/tag/footer.jsp" />
 	<c:import url="/tag/js.jsp" />
 </body>

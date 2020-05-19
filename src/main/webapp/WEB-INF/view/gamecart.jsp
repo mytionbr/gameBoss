@@ -49,7 +49,13 @@
 						<td>Erro</td>
 					</tr>
 					</c:if>
+					
 					</c:forEach>
+					<tr>
+							<th scope="row"></th>
+							<td colspan="2">Total price</td>
+							<td>${totalPrice }</td>
+						</tr>
 				</tbody>
 			</table>
 
